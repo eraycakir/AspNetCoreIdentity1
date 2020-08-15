@@ -71,6 +71,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.0-preview.7.20365.15, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[3.1.4, )"
+            },
+            "Microsoft.Web.LibraryManager.Build": {
+              "target": "Package",
+              "version": "[2.1.76, )"
             }
           },
           "imports": [

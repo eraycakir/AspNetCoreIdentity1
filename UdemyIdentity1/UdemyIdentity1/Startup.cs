@@ -16,6 +16,11 @@ namespace UdemyIdentity1
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            /// services.AddMvc veya services.AddMvcCore
+            /// arasýndaki fark AddMvc MVC kurup tüm default servisleri ayaða kaldýrýr
+            /// AddMvcCore sadece MVC kuruyor, default servisleri(geriye JSOn result dönme vb.) kendin ayaða kaldýrman gerekiyor.
+
+            services.AddControllersWithViews();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -23,17 +28,28 @@ namespace UdemyIdentity1
         {
             if (env.IsDevelopment())
             {
+                // Sayfada hata alýnýnca Developer 'ý bilgilendirme için
                 app.UseDeveloperExceptionPage();
+
+                // Herhangi bir Content dönmeyen sayfalarda Developer 'i bilgilendirici yazýlar dönüyor
+                // app.UseStatusCodePages();
             }
+
+            // app.UseRouting();
+
+            // Statik dosyalarý kullanmak için ekleniyor
+            app.UseStaticFiles();
+
+            ///// MVC default Route ile kurar.
+            //app.UseMvcWithDefaultRoute();
 
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
