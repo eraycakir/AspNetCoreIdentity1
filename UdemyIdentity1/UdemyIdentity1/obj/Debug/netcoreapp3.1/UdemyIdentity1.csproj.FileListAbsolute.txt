@@ -136,8 +136,6 @@ C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyId
 C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyIdentity1\obj\Debug\netcoreapp3.1\UdemyIdentity1.csprojAssemblyReference.cache
 C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyIdentity1\obj\Debug\netcoreapp3.1\UdemyIdentity1.AssemblyInfoInputs.cache
 C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyIdentity1\obj\Debug\netcoreapp3.1\UdemyIdentity1.AssemblyInfo.cs
-C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyIdentity1\obj\Debug\netcoreapp3.1\UdemyIdentity1.csproj.CoreCompileInputs.cache
-C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyIdentity1\obj\Debug\netcoreapp3.1\UdemyIdentity1.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyIdentity1\obj\Debug\netcoreapp3.1\UdemyIdentity1.RazorAssemblyInfo.cache
 C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyIdentity1\obj\Debug\netcoreapp3.1\UdemyIdentity1.RazorAssemblyInfo.cs
 C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyIdentity1\obj\Debug\netcoreapp3.1\UdemyIdentity1.TagHelpers.input.cache
@@ -156,3 +154,5 @@ C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyId
 C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyIdentity1\obj\Debug\netcoreapp3.1\UdemyIdentity1.dll
 C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyIdentity1\obj\Debug\netcoreapp3.1\UdemyIdentity1.pdb
 C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyIdentity1\obj\Debug\netcoreapp3.1\UdemyIdentity1.genruntimeconfig.cache
+C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyIdentity1\obj\Debug\netcoreapp3.1\UdemyIdentity1.csproj.CoreCompileInputs.cache
+C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyIdentity1\obj\Debug\netcoreapp3.1\UdemyIdentity1.MvcApplicationPartsAssemblyInfo.cache

@@ -1,25 +1,39 @@
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using UdemyIdentity1.Db;
+using UdemyIdentity1.Models;
 
 namespace UdemyIdentity1
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; set; }
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+        }
+
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            /// services.AddMvc veya services.AddMvcCore
-            /// arasýndaki fark AddMvc MVC kurup tüm default servisleri ayaða kaldýrýr
-            /// AddMvcCore sadece MVC kuruyor, default servisleri(geriye JSOn result dönme vb.) kendin ayaða kaldýrman gerekiyor.
+            services.AddDbContext<AppIdentityDbContext>(opts =>
+            {
+                opts.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            });
 
+            services.AddIdentity<AppUser, IdentityRole>().AddEntityFrameworkStores<AppIdentityDbContext>();
             services.AddControllersWithViews();
         }
 
@@ -35,16 +49,12 @@ namespace UdemyIdentity1
                 // app.UseStatusCodePages();
             }
 
-            // app.UseRouting();
-
             // Statik dosyalarý kullanmak için ekleniyor
             app.UseStaticFiles();
 
-            ///// MVC default Route ile kurar.
-            //app.UseMvcWithDefaultRoute();
+            app.UseAuthentication();
 
             app.UseRouting();
-
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
