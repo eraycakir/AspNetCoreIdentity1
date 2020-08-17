@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace UdemyIdentity1.Models
 {
-    public class AppUser : IdentityUser
+    public class AppRole : IdentityRole
     {
     }
 }
