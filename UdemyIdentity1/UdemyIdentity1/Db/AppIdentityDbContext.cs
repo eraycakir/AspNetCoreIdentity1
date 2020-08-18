@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UdemyIdentity1.Models;
+using UdemyIdentity1.Models.ViewModels;
 
 namespace UdemyIdentity1.Db
 {
@@ -13,6 +14,7 @@ namespace UdemyIdentity1.Db
         public AppIdentityDbContext(DbContextOptions<AppIdentityDbContext> options) : base(options)
         {
         }
+        public DbSet<UdemyIdentity1.Models.ViewModels.UserViewModel> UserViewModel { get; set; }
 
     }
 }
