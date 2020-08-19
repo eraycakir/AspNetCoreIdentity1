@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using UdemyIdentity1.CustomValidation;
 using UdemyIdentity1.Db;
 using UdemyIdentity1.Models;
 
@@ -33,7 +34,16 @@ namespace UdemyIdentity1
                 opts.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<AppIdentityDbContext>();
+            services.AddIdentity<AppUser, AppRole>(opts => 
+            {
+                opts.Password.RequiredLength = 4;
+                opts.Password.RequireNonAlphanumeric = false;
+                opts.Password.RequireLowercase = false;
+                opts.Password.RequireUppercase = false;
+                opts.Password.RequireDigit = false;
+            })
+            .AddPasswordValidator<CustomPasswordValidator>()
+            .AddEntityFrameworkStores<AppIdentityDbContext>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
 
