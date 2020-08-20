@@ -15,7 +15,10 @@ namespace UdemyIdentity1.CustomValidation
 
             if(password.Contains(user.UserName, StringComparison.OrdinalIgnoreCase))
             {
-                errors.Add(new IdentityError() { Code = "PasswordContainsUserName", Description = "şifre alanı kullanıcı adı içeremez" });
+                if(!user.Email.Contains(user.UserName.ToLower()))
+                {
+                    errors.Add(new IdentityError() { Code = "PasswordContainsUserName", Description = "şifre alanı kullanıcı adı içeremez" });
+                }
             }
 
             if (password.Contains(user.Email, StringComparison.OrdinalIgnoreCase))

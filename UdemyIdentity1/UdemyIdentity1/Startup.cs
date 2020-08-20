@@ -34,8 +34,12 @@ namespace UdemyIdentity1
                 opts.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddIdentity<AppUser, AppRole>(opts => 
+            services.AddIdentity<AppUser, AppRole>(opts =>
             {
+                opts.User.RequireUniqueEmail = true;
+                opts.User.AllowedUserNameCharacters = "abcçdefgðhýijklmnoöpqrsþtuüvwxyzABCÇDEFGÐHIÝJKLMNOÖPQRSÞTUÜVWXYZ0123456789-._";
+
+
                 opts.Password.RequiredLength = 4;
                 opts.Password.RequireNonAlphanumeric = false;
                 opts.Password.RequireLowercase = false;
@@ -43,6 +47,8 @@ namespace UdemyIdentity1
                 opts.Password.RequireDigit = false;
             })
             .AddPasswordValidator<CustomPasswordValidator>()
+            .AddUserValidator<CustomUserValidator>()
+            .AddErrorDescriber<CustomIdentityErrorDescriber>()
             .AddEntityFrameworkStores<AppIdentityDbContext>();
             services.AddControllersWithViews().AddRazorRuntimeCompilation();
         }
