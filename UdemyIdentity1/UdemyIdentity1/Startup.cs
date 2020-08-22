@@ -34,6 +34,22 @@ namespace UdemyIdentity1
                 opts.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            CookieBuilder cookieBuilder = new CookieBuilder();
+
+            cookieBuilder.Name = "MyBlog";
+            cookieBuilder.HttpOnly = false; // Client Side 'da tutulmasýn. Güvenlik için
+            // cookieBuilder.Expiration = System.TimeSpan.FromDays(60);
+            cookieBuilder.SameSite = SameSiteMode.Lax; // Az Güvenli. 
+            cookieBuilder.SecurePolicy = CookieSecurePolicy.SameAsRequest;
+
+            services.ConfigureApplicationCookie(opts => 
+            {
+                opts.ExpireTimeSpan = TimeSpan.FromDays(60);
+                opts.LoginPath = new PathString("/Home/Login");
+                opts.Cookie = cookieBuilder;
+                opts.SlidingExpiration = true; // Cookie 'nin süresinin yarsýna geldiðinde eðer kullanýcý tekrar istek yaparsa onun süresini bir 60 gün daha uzatýyor
+            });
+
             services.AddIdentity<AppUser, AppRole>(opts =>
             {
                 opts.User.RequireUniqueEmail = true;
