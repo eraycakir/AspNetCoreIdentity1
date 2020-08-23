@@ -61,8 +61,10 @@ namespace UdemyIdentity1.Controllers
             return View(userViewModel);
         }
 
-        public IActionResult Login()
+        public IActionResult Login(string ReturnUrl)
         {
+            TempData["ReturnUrl"] = ReturnUrl;
+
             return View();
         }
 
@@ -73,25 +75,47 @@ namespace UdemyIdentity1.Controllers
             {
                 AppUser user = await _userManager.FindByEmailAsync(userLogin.Email);
 
-                if(user != null)
+                if (user != null)
                 {
-                    await _signInManager.SignOutAsync(); // Önce SignOut yapalım.
-
-                    Microsoft.AspNetCore.Identity.SignInResult signInResult = await _signInManager.PasswordSignInAsync(user, 
-                        userLogin.Password,isPersistent: true, lockoutOnFailure: false); 
-                    
-                   if(signInResult.Succeeded)
+                    if (await _userManager.IsLockedOutAsync(user))
                     {
-                        return RedirectToAction("Index", "Home");
+                        ModelState.AddModelError("", "Hesabınız bir süreliğine kilitlenmiştir. Lütfen daha sonra tekrar deneyiniz.");
+                        return View(userLogin);
+                    }
+
+                    await _signInManager.SignOutAsync(); // Önce SignOut yapalım.
+                    Microsoft.AspNetCore.Identity.SignInResult signInResult = await _signInManager.PasswordSignInAsync(user, userLogin.Password, isPersistent: userLogin.RememberMe, lockoutOnFailure: false);
+                    if (signInResult.Succeeded)
+                    {
+                        await _userManager.ResetAccessFailedCountAsync(user);
+                        if (TempData["ReturnUrl"] != null)
+                        {
+                            return Redirect(TempData["ReturnUrl"].ToString());
+                        }
+                        return RedirectToAction("Index", "Member");
+                    }
+                    else
+                    {
+                        await _userManager.AccessFailedAsync(user);
+                        int failedCount = await _userManager.GetAccessFailedCountAsync(user);
+                        ModelState.AddModelError("", $" {failedCount} kez başarısız giriş.");
+                        if (failedCount == 3)
+                        {
+                            await _userManager.SetLockoutEndDateAsync(user, new System.DateTimeOffset(DateTime.Now.AddMinutes(20)));
+                            ModelState.AddModelError("", "Hesabınız 3 başarısız girişten dolayı 20 dakika kilitlenmiştir. Lütfen daha sonra tekrar deneyiniz.");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "Email adresiniz veya şifreniz yanlış.");
+                        }
                     }
                 }
                 else
                 {
-                    ModelState.AddModelError("", "Geçersiz email adresi veya şifresi");
+                    ModelState.AddModelError("", "Bu email adresine kayıtlı kullanıcı bulunamadı.");
                 }
             }
-
-            return View();
+            return View(userLogin);
         }
     }
 }
