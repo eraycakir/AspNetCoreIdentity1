@@ -51,7 +51,8 @@ namespace UdemyIdentity1
             .AddPasswordValidator<CustomPasswordValidator>()
             .AddUserValidator<CustomUserValidator>()
             .AddErrorDescriber<CustomIdentityErrorDescriber>()
-            .AddEntityFrameworkStores<AppIdentityDbContext>();
+            .AddEntityFrameworkStores<AppIdentityDbContext>()
+            .AddDefaultTokenProviders();
 
             /// AddIdentity 'den sonra eklenmesi lazým.
             CookieBuilder cookieBuilder = new CookieBuilder();
