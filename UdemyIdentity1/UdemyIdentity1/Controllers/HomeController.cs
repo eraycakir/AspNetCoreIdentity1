@@ -143,7 +143,7 @@ namespace UdemyIdentity1.Controllers
 
                 Helper.PasswordReset.PasswordResetSendEmail(passwordResetlink);
 
-                ViewBag.Status = "successfull";
+                ViewBag.Status = "success";
             }
             else
             {
@@ -155,8 +155,43 @@ namespace UdemyIdentity1.Controllers
 
         public IActionResult ResetPasswordConfirm(string userId, string token)
         {
+            TempData["userId"] = userId;
+            TempData["token"] = token;
+
             return View();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> ResetPasswordConfirm(ResetPasswordConfirmViewModel resetPasswordConfirmViewModel)
+        {
+            string token = TempData["token"].ToString();
+            string userId = TempData["userId"].ToString();
+
+            AppUser user = await _userManager.FindByIdAsync(userId);
+
+            if (user != null)
+            {
+                IdentityResult result = await _userManager.ResetPasswordAsync(user, token, resetPasswordConfirmViewModel.PasswordNew);
+                if (result.Succeeded)
+                {
+                    await _userManager.UpdateSecurityStampAsync(user);
+
+                    ViewBag.Status = "success";
+                }
+                else
+                {
+                    foreach (var item in result.Errors)
+                    {
+                        ModelState.AddModelError("", item.Description);
+                    }
+                }
+            }
+            else
+            {
+                ModelState.AddModelError("", "Bir hata meydana gelmiştir. Lütfen daha sonra tekrar deneyiniz.");
+            }
+
+            return View(resetPasswordConfirmViewModel);
+        }
     }
 }
