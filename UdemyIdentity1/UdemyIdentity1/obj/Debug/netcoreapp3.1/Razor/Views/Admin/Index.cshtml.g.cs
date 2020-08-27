@@ -19,8 +19,15 @@ using UdemyIdentity1.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 3 "C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyIdentity1\Views\_ViewImports.cshtml"
+using UdemyIdentity1.Models.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9aabb7ff7a5fba64ded26160bdf2b51436e8d751", @"/Views/Admin/Index.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9737abaf21acb80071b040604c26c9d35c26dc20", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"a81414b3ae5638430c34fc692bbce0f711a91910", @"/Views/_ViewImports.cshtml")]
     public class Views_Admin_Index : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<List<AppUser>>
     {
         #pragma warning disable 1998

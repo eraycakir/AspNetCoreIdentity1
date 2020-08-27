@@ -24,6 +24,7 @@
     ".NETCoreApp,Version=v3.1": {
       "UdemyIdentity1/1.0.0": {
         "dependencies": {
+          "Mapster": "6.5.0",
           "Microsoft.AspNetCore.Authentication.Facebook": "3.1.7",
           "Microsoft.AspNetCore.Authentication.Google": "3.1.7",
           "Microsoft.AspNetCore.Authentication.MicrosoftAccount": "3.1.7",
@@ -312,6 +313,21 @@
             "assemblyVersion": "2.8.0.0",
             "fileVersion": "2.8.26.1919"
           }
+        }
+      },
+      "Mapster/6.5.0": {
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0",
+          "System.Reflection.Emit": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard2.0/Mapster.dll": {
+            "assemblyVersion": "6.5.0.0",
+            "fileVersion": "6.5.0.0"
+          }
+        },
+        "compile": {
+          "lib/netstandard2.0/Mapster.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authentication.Facebook/3.1.7": {
@@ -3977,6 +3993,13 @@
       "sha512": "sha512-OiKusGL20vby4uDEswj2IgkdchC1yQ6rwbIkZDVBPIR6al2b7n3pC91elBul9q33KaBgRKhbZH3+2Ur4fnWx2A==",
       "path": "humanizer.core/2.8.26",
       "hashPath": "humanizer.core.2.8.26.nupkg.sha512"
+    },
+    "Mapster/6.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-j6SQzsq4AkTzkYbKpAgOtJ88b2FlVI2Tiz+saf6M0BeZWat8u8d8SrGB3k6ROguEYeRfC8ILwXXo4Ht+seVphQ==",
+      "path": "mapster/6.5.0",
+      "hashPath": "mapster.6.5.0.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Authentication.Facebook/3.1.7": {
       "type": "package",

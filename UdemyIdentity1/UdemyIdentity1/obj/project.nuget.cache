@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "LadPKDYgwx3TnRDN8ZFT/akpx8saSLdSGJSc2+7UmtmTZM9pGIlGB2uIuYtWYsC4o/l8J1sGHMBT769tHhg42Q==",
+  "dgSpecHash": "BCYjXyoJhP7eUvvDuVE3WC/Fc+ZsHfFTA2N/TUwmH7Sy+l0pLEiZQCVef0KRUfOGGJwMUdfbYbVcyaPI+vN34Q==",
   "success": true,
   "projectFilePath": "C:\\Users\\MehmetYagci\\Documents\\GitHub\\AspNetCoreIdentity1\\UdemyIdentity1\\UdemyIdentity1\\UdemyIdentity1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\MehmetYagci\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
+    "C:\\Users\\MehmetYagci\\.nuget\\packages\\mapster\\6.5.0\\mapster.6.5.0.nupkg.sha512",
     "C:\\Users\\MehmetYagci\\.nuget\\packages\\microsoft.aspnetcore.authentication.facebook\\3.1.7\\microsoft.aspnetcore.authentication.facebook.3.1.7.nupkg.sha512",
     "C:\\Users\\MehmetYagci\\.nuget\\packages\\microsoft.aspnetcore.authentication.google\\3.1.7\\microsoft.aspnetcore.authentication.google.3.1.7.nupkg.sha512",
     "C:\\Users\\MehmetYagci\\.nuget\\packages\\microsoft.aspnetcore.authentication.microsoftaccount\\3.1.7\\microsoft.aspnetcore.authentication.microsoftaccount.3.1.7.nupkg.sha512",
