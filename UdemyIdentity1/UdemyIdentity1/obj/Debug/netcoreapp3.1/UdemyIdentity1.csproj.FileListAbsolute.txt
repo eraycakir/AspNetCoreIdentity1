@@ -435,3 +435,4 @@ C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyId
 C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyIdentity1\obj\Debug\netcoreapp3.1\UdemyIdentity1.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyIdentity1\obj\Debug\netcoreapp3.1\UdemyIdentity1.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyIdentity1\obj\Debug\netcoreapp3.1\Razor\Views\Member\PasswordChange.cshtml.g.cs
+C:\Users\MehmetYagci\Documents\GitHub\AspNetCoreIdentity1\UdemyIdentity1\UdemyIdentity1\obj\Debug\netcoreapp3.1\Razor\Views\Member\UserEdit.cshtml.g.cs
